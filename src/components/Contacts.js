@@ -22,11 +22,13 @@ class Contacts extends React.Component {
 
   renderItem = ({ item, index }) => {
     return (
-      <Link to={`${this.props.match.url}/:${item.id}`}>
+      <Link to={{ pathname: `/${item.id}`, contact: item }}>
         <View style={contactsStyles.item}>
           {index === 0 ? <View style={contactsStyles.separator} /> : null}
           <Text style={contactsStyles.itemText}>Name: {item.name}</Text>
-          <View style={contactsStyles.separator} />
+          {index === this.state.contactsList.length - 1 ? (
+            <View style={contactsStyles.separator} />
+          ) : null}
         </View>
       </Link>
     );
@@ -35,13 +37,18 @@ class Contacts extends React.Component {
   render() {
     return (
       <View style={contactsStyles.container}>
-        <Text style={contactsStyles.title}>Contacts</Text>
         <FlatList
+          ListHeaderComponent={() => (
+            <Text style={contactsStyles.title}>Contacts</Text>
+          )}
           style={contactsStyles.listContainer}
           contentContainerStyle={contactsStyles.listContainer}
           data={this.state.contactsList}
           renderItem={this.renderItem}
           keyExtractor={item => item.id.toString()}
+          ItemSeparatorComponent={() => (
+            <View style={contactsStyles.separator} />
+          )}
         />
       </View>
     );

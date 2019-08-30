@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const contactsStyles = StyleSheet.create({
+export const contactViewStyles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
@@ -11,26 +11,22 @@ export const contactsStyles = StyleSheet.create({
     fontSize: 20,
     color: "#000",
     fontWeight: "bold",
-    marginTop: 20,
     marginBottom: 20
   },
-  listContainer: {
-    width: "100%"
-  },
-  item: {
-    width: "100%"
-  },
-  separator: {
+  cellView: {
     width: "100%",
-    height: 1,
-    backgroundColor: "#c3c7ce"
-  },
-  itemText: {
     fontSize: 17,
     color: "#000",
+    textAlign: "left",
     marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 10,
-    marginRight: 10
+    marginBottom: 10
+  },
+  backButton: {
+    color: "#0000ff",
+    fontSize: 15
+  },
+  backButtonView: {
+    alignSelf: "flex-start",
+    marginTop: 20
   }
 });
