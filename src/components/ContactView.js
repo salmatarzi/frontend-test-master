@@ -51,7 +51,6 @@ export const ContactView = ({ match, location }) => {
       </TouchableOpacity>
       <View style={contactsStyles.separator} />
       <TouchableOpacity
-        accessibilityRole="link"
         onPress={() => openLink(contact.website)}
         style={contactViewStyles.alignSelfFlexStart}
       >

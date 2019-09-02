@@ -35,21 +35,23 @@ class Contacts extends React.Component {
     );
   };
 
+  renderHeader = () => <Text style={contactsStyles.title}>Contacts</Text>;
+
+  renderSeparator = () => <View style={contactsStyles.separator} />;
+
+  keyExtractor = item => item.id.toString();
+
   mobileView = () => {
     return (
       <View style={contactsStyles.container}>
         <FlatList
-          ListHeaderComponent={() => (
-            <Text style={contactsStyles.title}>Contacts</Text>
-          )}
+          ListHeaderComponent={this.renderHeader}
           style={contactsStyles.listContainer}
           contentContainerStyle={contactsStyles.listContainer}
           data={this.state.contactsList}
           renderItem={this.renderItem}
-          keyExtractor={item => item.id.toString()}
-          ItemSeparatorComponent={() => (
-            <View style={contactsStyles.separator} />
-          )}
+          keyExtractor={this.keyExtractor}
+          ItemSeparatorComponent={this.renderSeparator}
         />
       </View>
     );
@@ -59,17 +61,13 @@ class Contacts extends React.Component {
     return (
       <View style={[contactsStyles.container, { flexDirection: "row" }]}>
         <FlatList
-          ListHeaderComponent={() => (
-            <Text style={contactsStyles.title}>Contacts</Text>
-          )}
-          style={{ flex: 1 }}
-          contentContainerStyle={{ flex: 1 }}
+          ListHeaderComponent={this.renderHeader}
+          style={contactsStyles.flex1}
+          contentContainerStyle={contactsStyles.flex1}
           data={this.state.contactsList}
           renderItem={this.renderItem}
-          keyExtractor={item => item.id.toString()}
-          ItemSeparatorComponent={() => (
-            <View style={contactsStyles.separator} />
-          )}
+          keyExtractor={this.keyExtractor}
+          ItemSeparatorComponent={this.renderSeparator}
         />
         <View style={{ flex: 1 }}>
           <Route exact path={"/:id"} component={ContactView} />
