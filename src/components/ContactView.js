@@ -5,7 +5,7 @@ import { contactsStyles } from "../styles/Contacts";
 import { Link } from "../utils/router";
 import { isMobile } from "../utils/common";
 
-const onPress = number => {
+const callPhoneNumber = number => {
   let phoneNumber = "";
 
   if (Platform.OS === "android") {
@@ -14,6 +14,11 @@ const onPress = number => {
     phoneNumber = "telprompt:${" + number.toString() + "}";
   }
   Linking.openURL(phoneNumber);
+};
+
+const openLink = url => {
+  if (isMobile) Linking.openURL("http://www." + url);
+  else window.open("http://www." + url, "_blank");
 };
 
 export const ContactView = ({ match, location }) => {
@@ -38,11 +43,22 @@ export const ContactView = ({ match, location }) => {
       <View style={contactsStyles.separator} />
       <Text style={contactViewStyles.cellView}>Email: {contact.email}</Text>
       <View style={contactsStyles.separator} />
-      <TouchableOpacity style={contactViewStyles.phoneView} onPress={onPress}>
+      <TouchableOpacity
+        style={contactViewStyles.alignSelfFlexStart}
+        onPress={() => callPhoneNumber(contact.phone)}
+      >
         <Text style={contactViewStyles.cellView}>Phone: {contact.phone}</Text>
       </TouchableOpacity>
       <View style={contactsStyles.separator} />
-      <Text style={contactViewStyles.cellView}>Website: {contact.website}</Text>
+      <TouchableOpacity
+        accessibilityRole="link"
+        onPress={() => openLink(contact.website)}
+        style={contactViewStyles.alignSelfFlexStart}
+      >
+        <Text style={contactViewStyles.cellView}>
+          Website: {contact.website}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -63,7 +63,7 @@ class Contacts extends React.Component {
             <Text style={contactsStyles.title}>Contacts</Text>
           )}
           style={{ flex: 1 }}
-          contentContainerStyle={contactsStyles.listContainer}
+          contentContainerStyle={{ flex: 1 }}
           data={this.state.contactsList}
           renderItem={this.renderItem}
           keyExtractor={item => item.id.toString()}
@@ -71,13 +71,14 @@ class Contacts extends React.Component {
             <View style={contactsStyles.separator} />
           )}
         />
-        <Route path={this.props.match.params.url} component={ContactView} />
+        <View style={{ flex: 1 }}>
+          <Route exact path={"/:id"} component={ContactView} />
+        </View>
       </View>
     );
   };
 
   render() {
-    if (isWeb) console.log("is web");
     return isWeb ? this.webView() : this.mobileView();
   }
 }

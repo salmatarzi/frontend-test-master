@@ -29,7 +29,7 @@ export const contactViewStyles = StyleSheet.create({
     alignSelf: "flex-start",
     marginTop: 20
   },
-  phoneView: {
+  alignSelfFlexStart: {
     alignSelf: "flex-start"
   }
 });

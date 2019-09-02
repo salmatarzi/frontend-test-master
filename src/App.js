@@ -19,8 +19,7 @@ class App extends Component {
             {isWeb ? (
               <Contacts
                 match={{
-                  params: { id: 1 },
-                  url: "/:id"
+                  url: ""
                 }}
               />
             ) : null}
