@@ -4,6 +4,7 @@ import { Router, Switch, Route, Link, Redirect } from "./utils/router"; // we pr
 import { isDesktop, isIos } from "./utils/router"; // we prepared some useful booleans for you here
 import Contacts from "./components/Contacts";
 import { ContactView } from "./components/ContactView";
+import { isMobile, isWeb } from "./utils/common";
 
 class App extends Component {
   render() {
@@ -11,8 +12,18 @@ class App extends Component {
       <Router>
         <View style={styles.container}>
           <Switch>
-            <Route path="/" exact component={Contacts} />
-            <Route path="/:id" exact component={ContactView} />
+            {isMobile ? <Route path="/" exact component={Contacts} /> : null}
+            {isMobile ? (
+              <Route path="/:id" exact component={ContactView} />
+            ) : null}
+            {isWeb ? (
+              <Contacts
+                match={{
+                  params: { id: 1 },
+                  url: "/:id"
+                }}
+              />
+            ) : null}
           </Switch>
         </View>
       </Router>

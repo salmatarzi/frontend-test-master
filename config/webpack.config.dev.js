@@ -230,6 +230,7 @@ module.exports = {
                       },
                     },
                   },
+                  require.resolve('@babel/plugin-proposal-class-properties'),
                 ],
                 'react-hot-loader/babel',
               ],

@@ -1,8 +1,9 @@
 import React from "react";
 import { FlatList, Text, View } from "react-native";
 import { contactsStyles } from "../styles/Contacts";
-import { Link } from "react-router-native";
-
+import { Link, Route } from "../utils/router";
+import { ContactView } from "./ContactView";
+import { isWeb } from "../utils/common";
 const URL = "https://jsonplaceholder.typicode.com/users";
 
 class Contacts extends React.Component {
@@ -34,7 +35,7 @@ class Contacts extends React.Component {
     );
   };
 
-  render() {
+  mobileView = () => {
     return (
       <View style={contactsStyles.container}>
         <FlatList
@@ -52,6 +53,32 @@ class Contacts extends React.Component {
         />
       </View>
     );
+  };
+
+  webView = () => {
+    return (
+      <View style={[contactsStyles.container, { flexDirection: "row" }]}>
+        <FlatList
+          ListHeaderComponent={() => (
+            <Text style={contactsStyles.title}>Contacts</Text>
+          )}
+          style={{ flex: 1 }}
+          contentContainerStyle={contactsStyles.listContainer}
+          data={this.state.contactsList}
+          renderItem={this.renderItem}
+          keyExtractor={item => item.id.toString()}
+          ItemSeparatorComponent={() => (
+            <View style={contactsStyles.separator} />
+          )}
+        />
+        <Route path={this.props.match.params.url} component={ContactView} />
+      </View>
+    );
+  };
+
+  render() {
+    if (isWeb) console.log("is web");
+    return isWeb ? this.webView() : this.mobileView();
   }
 }
 

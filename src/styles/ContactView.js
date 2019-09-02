@@ -28,5 +28,8 @@ export const contactViewStyles = StyleSheet.create({
   backButtonView: {
     alignSelf: "flex-start",
     marginTop: 20
+  },
+  phoneView: {
+    alignSelf: "flex-start"
   }
 });
