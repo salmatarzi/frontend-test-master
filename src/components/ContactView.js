@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, Linking, Platform, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  Linking,
+  Platform,
+  TouchableOpacity,
+  Image
+} from "react-native";
 import { contactViewStyles } from "../styles/ContactView";
 import { contactsStyles } from "../styles/Contacts";
 import { Link } from "../utils/router";
@@ -33,6 +40,12 @@ export const ContactView = ({ match, location }) => {
         </View>
       ) : null}
       <Text style={contactViewStyles.title}>Contact Details</Text>
+      <Image
+        style={contactViewStyles.icon}
+        source={{
+          uri: `https://api.adorable.io/avatars/96/${match.params.id}.png`
+        }}
+      />
       <Text style={contactViewStyles.cellView}>ID: {match.params.id}</Text>
       <View style={contactsStyles.separator} />
       <Text style={contactViewStyles.cellView}>Name: {contact.name}</Text>

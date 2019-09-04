@@ -13,6 +13,12 @@ export const contactViewStyles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20
   },
+  icon: {
+    width: 100,
+    height: 100,
+    borderRadius: 5,
+    marginBottom: 10
+  },
   cellView: {
     width: "100%",
     fontSize: 17,
