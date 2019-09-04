@@ -4,6 +4,7 @@ import { contactsStyles } from "../styles/Contacts";
 import { Link, Route } from "../utils/router";
 import { ContactView } from "./ContactView";
 import { isWeb } from "../utils/common";
+import {commonStyles} from "../styles/common";
 const URL = "https://jsonplaceholder.typicode.com/users";
 
 class Contacts extends React.Component {
@@ -62,8 +63,8 @@ class Contacts extends React.Component {
       <View style={[contactsStyles.container, { flexDirection: "row" }]}>
         <FlatList
           ListHeaderComponent={this.renderHeader}
-          style={contactsStyles.flex1}
-          contentContainerStyle={contactsStyles.flex1}
+          style={commonStyles.flex1}
+          contentContainerStyle={commonStyles.flex1}
           data={this.state.contactsList}
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}

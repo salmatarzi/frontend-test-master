@@ -37,5 +37,10 @@ export const contactViewStyles = StyleSheet.create({
   },
   alignSelfFlexStart: {
     alignSelf: "flex-start"
+  },
+  noContactChosenText: {
+    fontSize: 20,
+    alignSelf: "center",
+    textAlign: "center"
   }
 });
