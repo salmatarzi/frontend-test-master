@@ -22,7 +22,7 @@ module.exports = {
 		// '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
 		// '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js'
 	},
-	// transformIgnorePatterns: [], // the array has to be here (no idea why, but it breaks if its gone)
+	transformIgnorePatterns: [], // the array has to be here (no idea why, but it breaks if its gone)
 	moduleFileExtensions: [
 		'ios.js',
 		'android.js',
