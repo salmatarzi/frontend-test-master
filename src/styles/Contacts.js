@@ -1,17 +1,12 @@
 import { StyleSheet } from "react-native";
 
 export const contactsStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 15
-  },
   title: {
     alignSelf: "center",
     fontSize: 20,
     color: "#000",
     fontWeight: "bold",
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 20
   },
   listContainer: {
@@ -19,11 +14,6 @@ export const contactsStyles = StyleSheet.create({
   },
   item: {
     width: "100%"
-  },
-  separator: {
-    width: "100%",
-    height: 1,
-    backgroundColor: "#c3c7ce"
   },
   itemText: {
     fontSize: 17,

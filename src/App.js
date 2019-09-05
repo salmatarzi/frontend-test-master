@@ -5,6 +5,7 @@ import { isDesktop, isIos } from "./utils/router"; // we prepared some useful bo
 import Contacts from "./components/Contacts";
 import { ContactView } from "./components/ContactView";
 import { isMobile, isWeb } from "./utils/common";
+import AddContact from "./components/AddContact";
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
           <Switch>
             {isMobile ? <Route path="/" exact component={Contacts} /> : null}
             {isMobile ? (
-              <Route path="/:id" exact component={ContactView} />
+              <Route path="/contacts/:id" exact component={ContactView} />
             ) : null}
             {isWeb ? (
               <Contacts
@@ -23,6 +24,7 @@ class App extends Component {
                 }}
               />
             ) : null}
+            <Route path="/add" component={AddContact} />
           </Switch>
         </View>
       </Router>

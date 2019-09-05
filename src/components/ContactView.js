@@ -8,7 +8,6 @@ import {
   Image
 } from "react-native";
 import { contactViewStyles } from "../styles/ContactView";
-import { contactsStyles } from "../styles/Contacts";
 import { Link } from "../utils/router";
 import { isMobile } from "../utils/common";
 import { commonStyles } from "../styles/common";
@@ -49,22 +48,22 @@ export const ContactView = ({ match, location }) => {
           }}
         />
         <Text style={contactViewStyles.cellView}>ID: {match.params.id}</Text>
-        <View style={contactsStyles.separator} />
+        <View style={commonStyles.separator} />
         <Text style={contactViewStyles.cellView}>Name: {contact.name}</Text>
-        <View style={contactsStyles.separator} />
+        <View style={commonStyles.separator} />
         <Text style={contactViewStyles.cellView}>
           Username: {contact.username}
         </Text>
-        <View style={contactsStyles.separator} />
+        <View style={commonStyles.separator} />
         <Text style={contactViewStyles.cellView}>Email: {contact.email}</Text>
-        <View style={contactsStyles.separator} />
+        <View style={commonStyles.separator} />
         <TouchableOpacity
           style={contactViewStyles.alignSelfFlexStart}
           onPress={() => callPhoneNumber(contact.phone)}
         >
           <Text style={contactViewStyles.cellView}>Phone: {contact.phone}</Text>
         </TouchableOpacity>
-        <View style={contactsStyles.separator} />
+        <View style={commonStyles.separator} />
         <TouchableOpacity
           onPress={() => openLink(contact.website)}
           style={contactViewStyles.alignSelfFlexStart}
